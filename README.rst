@@ -3,7 +3,7 @@ TYPO3 performance analysis
 **************************
 
 ``nr_perfanalysis`` is a TYPO3 extension that collects timing and count
-data about the SQL queries sends to the database.
+data about the SQL queries sent to the database.
 It then displays the summary in the bottom right of the frontend pages:
 
 .. image:: doc/frontend.png
