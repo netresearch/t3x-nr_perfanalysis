@@ -65,7 +65,13 @@ class Counter
     public function get()
     {
         if (self::$instance === null) {
-            self::$instance = new self();
+            if (Config::isEnabled()) {
+                self::$instance = new self();
+            } else {
+                //needed so that extensions can use the counter
+                // without
+                self::$instance = new NullCounter();
+            }
         }
         return self::$instance;
     }
