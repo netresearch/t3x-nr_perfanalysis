@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<project name="nr_perfanalysis" default="build" basedir=".">
+
+	<import file="../aida_unittest/build.xml" />
+
+</project>
