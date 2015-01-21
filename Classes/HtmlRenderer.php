@@ -57,7 +57,7 @@ class HtmlRenderer
         if (isset($_SERVER['REQUEST_TIME_FLOAT'])) {
             //only available since PHP 5.4.0
             $pagetime = microtime(true) - $_SERVER['REQUEST_TIME_FLOAT'];
-            $htmlstr[] = 'page: ' . number_format($pagetime, 3) . 'ms';
+            $htmlstr[] = 'page: ' . number_format($pagetime, 3) . 's';
         }
 
         $counts = array();
@@ -73,7 +73,7 @@ class HtmlRenderer
         foreach ($counts as $group => $number) {
             $htmlstr[] = $group
                 . ': ' . $counts[$group]
-                . '⨯, ' . $times[$group] . 'ms';
+                . '⨯, ' . $times[$group] . 's';
         }
 
         $str = implode(', ', $htmlstr);
