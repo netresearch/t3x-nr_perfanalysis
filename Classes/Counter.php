@@ -62,7 +62,7 @@ class Counter
      *
      * @return Counter
      */
-    public function get()
+    public static function get()
     {
         if (self::$instance === null) {
             if (Config::isEnabled()) {

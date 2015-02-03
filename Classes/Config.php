@@ -29,7 +29,7 @@ class Config
      *
      * @return boolean
      */
-    public function isEnabled()
+    public static function isEnabled()
     {
         $extConf = unserialize(
             $GLOBALS['TYPO3_CONF_VARS']['EXT']['extConf']['nr_perfanalysis']
