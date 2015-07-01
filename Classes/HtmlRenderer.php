@@ -78,7 +78,7 @@ class HtmlRenderer
 
         $str = implode(', ', $htmlstr);
         $html = <<<HTM
-<div id="perfanalysis" style="position: fixed; right: 0; bottom: 0; background-color: #333; color: #DDD; border-top: 1px solid #DDD; border-left: 1px solid #DDD; padding: 2px; font-size: 12px; z-index: 90000">
+<div id="perfanalysis" onclick="document.getElementById('perfanalysis').remove();" style="position: fixed; right: 0; bottom: 0; background-color: #333; color: #DDD; border-top: 1px solid #DDD; border-left: 1px solid #DDD; padding: 2px; font-size: 12px; z-index: 90000">
  $str
 </div>
 HTM;
