@@ -4,15 +4,15 @@ $EM_CONF[$_EXTKEY] = array(
     'description' => 'Show SQL statistics for frontend rendering directly in the frontend.',
     'category' => 'frontend',
     'author' => 'Christian Weiske',
-    'author_company' => 'Netresearch',
-    'author_email' => 'christian.weiske@netresearch.de',
+    'author_company' => 'Netresearch GmbH & Co.KG',
+    'author_email' => 'typo3@cweiske.de',
     'dependencies' => '',
-    'state' => 'alpha',
+    'state' => 'stable',
     'clearCacheOnLoad' => '1',
-    'version' => '0.0.1',
+    'version' => '1.0.0',
     'constraints' => array(
         'depends' => array(
-            'typo3' => '6.2.0-7.1.99',
+            'typo3' => '6.2.0-7.99.99',
         )
     )
 );

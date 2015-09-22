@@ -2,16 +2,42 @@
 TYPO3 performance analysis
 **************************
 
-``nr_perfanalysis`` is a TYPO3 extension that collects timing and count
-data about the SQL queries sent to the database.
-It then displays the summary in the bottom right of the frontend pages:
+``nr_perfanalysis`` is a TYPO3 extension that collects and displays
+frontend rendering timing and quantity information.
 
-.. image:: doc/frontend.png
+It displays the summary at the bottom right of the frontend pages:
+
+.. figure:: doc/frontend.png
+   :align: center
+
+   TYPO3 introduction package rendering with nr_perfanalysis output
+
+.. contents::
+
+=====
+Usage
+=====
+By enabling the extension, the frontend performance bar is automatically
+shown whenever a TYPO3 page is generated.
+
+Clicking on the bar hides it.
 
 
-==============
-Custom numbers
-==============
+Default performance indicators
+==============================
+``page``
+  Server-side page rendering time
+``sql``
+  SQL query count and time
+``browser``
+  Browser `rendering time`__
+
+__ http://www.w3.org/TR/2012/REC-navigation-timing-20121217/#sec-window.performance-attribute
+
+
+=================
+Custom indicators
+=================
 Your own extensions can collect statistical data, too.
 
 Start an event::
@@ -33,3 +59,22 @@ Dependencies
 ============
 - TYPO3 6.2+
 - PHP 5.4+ for page generation statistics
+
+
+=====================
+About nr_perfanalysis
+=====================
+
+License
+=======
+``nr_perfanalysis`` is licensed under the `AGPL v3`__ or later.
+
+__ http://www.gnu.org/licenses/agpl-3.0.html
+
+
+Author
+======
+`Christian Weiske`__, `Netresearch GmbH & Co.KG`__
+
+__ mailto:typo3@cweiske.de
+__ http://www.netresearch.de/
