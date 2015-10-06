@@ -78,3 +78,14 @@ Author
 
 __ mailto:typo3@cweiske.de
 __ http://www.netresearch.de/
+
+
+Links
+=====
+- `TYPO3.org extension page`__
+- `TYPO3.org documentation`__
+- `Source code`__
+
+__ http://typo3.org/extensions/repository/view/nr_perfanalysis
+__ https://docs.typo3.org/typo3cms/extensions/nr_perfanalysis/
+__ https://github.com/netresearch/t3x-nr_perfanalysis
