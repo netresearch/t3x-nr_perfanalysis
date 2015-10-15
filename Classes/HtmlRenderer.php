@@ -84,16 +84,17 @@ class HtmlRenderer
 <script type="text/javascript">
 if (typeof performance != "undefined") {
   function seconds(ms) {
-        return (ms / 1000).toFixed(2); + 's';
+        return (ms / 1000).toFixed(2) + 's, ';
     }
     window.addEventListener('load', function() {
      var t = window.performance.timing,
             interactive = t.domInteractive - t.domLoading,
             dcl = t.domContentLoadedEventStart - t.domLoading,
             complete = t.domComplete - t.domLoading;
-        var stats = 'Browser: ' + seconds(interactive) + ', '
-            + 'Complete: ' + seconds(complete) + ', ';
-        document.getElementById('perfanalysisbrowser').innerHTML = "Total: " + (new Date().getTime() - performance.timing.navigationStart) / 1000 + "s, " + stats;
+        var stats = 'Browser: ' + seconds(interactive);
+        //  + 'Complete: ' + seconds(complete) + ', ';
+        document.getElementById('perfanalysisbrowser').innerHTML = stats;
+        // "Total: " + (new Date().getTime() - performance.timing.navigationStart) / 1000 + "s, " +
     });
 }
 </script>
