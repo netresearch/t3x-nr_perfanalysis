@@ -1,7 +1,13 @@
+2015-10-15  André Lademann  <andre.lademann@netresearch.de>
+
+	* AGP-2563: Add performance analyses key values for browser
+
 2015-09-22  Christian Weiske  <christian.weiske@netresearch.de>
 
 	* Hide performance bar when clicking on it
+
 	* Show browser rendering time
+
 	* Version 1.0.0
 
 2015-01-09  Christian Weiske  <christian.weiske@netresearch.de>

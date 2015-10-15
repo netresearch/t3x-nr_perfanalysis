@@ -57,7 +57,7 @@ class HtmlRenderer
         if (isset($_SERVER['REQUEST_TIME_FLOAT'])) {
             //only available since PHP 5.4.0
             $pagetime = microtime(true) - $_SERVER['REQUEST_TIME_FLOAT'];
-            $htmlstr[] = 'page: ' . number_format($pagetime, 3) . 's';
+            $htmlstr[] = 'Page: ' . number_format($pagetime, 3) . 's';
         }
 
         $counts = array();
@@ -78,13 +78,22 @@ class HtmlRenderer
 
         $str = implode(', ', $htmlstr);
         $html = <<<HTM
-<div id="perfanalysis" onclick="document.getElementById('perfanalysis').remove();" style="position: fixed; right: 0; bottom: 0; background-color: #333; color: #DDD; border-top: 1px solid #DDD; border-left: 1px solid #DDD; padding: 2px; font-size: 12px; z-index: 90000"><span id="perfanalysisbrowser"></span>
+<div id="perfanalysis" onclick="document.getElementById('perfanalysis').remove();" style="position: fixed; right: 0; bottom: 0; background-color: rgba(0,0,0,.85); color: #DDD; border-top: 1px solid #DDD; border-left: 1px solid #DDD; padding: 3px; font-size: 12px; z-index: 90000"><span id="perfanalysisbrowser"></span>
  $str
 </div>
 <script type="text/javascript">
 if (typeof performance != "undefined") {
+  function seconds(ms) {
+        return (ms / 1000).toFixed(2); + 's';
+    }
     window.addEventListener('load', function() {
-        document.getElementById('perfanalysisbrowser').innerHTML = "browser: " + (new Date().getTime() - performance.timing.navigationStart) / 1000 + "s, ";
+     var t = window.performance.timing,
+            interactive = t.domInteractive - t.domLoading,
+            dcl = t.domContentLoadedEventStart - t.domLoading,
+            complete = t.domComplete - t.domLoading;
+        var stats = 'Browser: ' + seconds(interactive) + ', '
+            + 'Complete: ' + seconds(complete) + ', ';
+        document.getElementById('perfanalysisbrowser').innerHTML = "Total: " + (new Date().getTime() - performance.timing.navigationStart) / 1000 + "s, " + stats;
     });
 }
 </script>
