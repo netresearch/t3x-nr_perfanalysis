@@ -78,7 +78,30 @@ class HtmlRenderer
 
         $str = implode(', ', $htmlstr);
         $html = <<<HTM
-<div id="perfanalysis" onclick="document.getElementById('perfanalysis').remove();" style="position: fixed; right: 0; bottom: 0; background-color: rgba(0,0,0,.85); color: #DDD; border-top: 1px solid #DDD; border-left: 1px solid #DDD; padding: 3px; font-size: 12px; z-index: 90000"><span id="perfanalysisbrowser"></span>
+<style>
+  #perfanalysis {
+    position:           fixed;
+    right:              0;
+    bottom:             0;
+    background-color:   rgba(0,0,0,0.5);
+    color:              #FFFFFF;
+    border-top:         1px solid rgba(240,240,240,0.4);
+    border-left:        1px solid rgba(240,240,240,0.4);
+    padding:            1px 8px 1px 8px;
+    font-size:          12px;
+    z-index:            90000;
+    transition:         background-color 0.25s, font-size 0.15s ease-in-out;
+    -moz-transition:    background-color 0.25s, font-size 0.15s ease-in-out;
+    -webkit-transition: background-color 0.25s, font-size 0.15s ease-in-out;
+  }
+
+  #perfanalysis:hover {
+    background-color:   rgba(0,0,0,0.8);
+    padding:            2px 8px 2px 8px;
+    font-size:          16px;
+  }
+</style>
+<div id="perfanalysis" onclick="document.getElementById('perfanalysis').remove();"><span id="perfanalysisbrowser"></span>
  $str
 </div>
 <script type="text/javascript">
