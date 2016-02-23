@@ -88,17 +88,17 @@ class HtmlRenderer
     border-top:         1px solid rgba(240,240,240,0.4);
     border-left:        1px solid rgba(240,240,240,0.4);
     padding:            1px 8px 1px 8px;
+    font-family:        sans-serif;
     font-size:          12px;
+    font-weight:        normal;
     z-index:            90000;
-    transition:         background-color 0.25s, font-size 0.15s ease-in-out;
-    -moz-transition:    background-color 0.25s, font-size 0.15s ease-in-out;
-    -webkit-transition: background-color 0.25s, font-size 0.15s ease-in-out;
+    transition:         background-color 0.25s ease-in-out;
+    -moz-transition:    background-color 0.25s ease-in-out;
+    -webkit-transition: background-color 0.25s ease-in-out;
   }
 
   #perfanalysis:hover {
     background-color:   rgba(0,0,0,0.8);
-    padding:            2px 8px 2px 8px;
-    font-size:          16px;
   }
 </style>
 <div id="perfanalysis" onclick="document.getElementById('perfanalysis').remove();"><span id="perfanalysisbrowser"></span>
