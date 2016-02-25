@@ -90,7 +90,7 @@ class HtmlRenderer
     padding:            1px 8px 1px 8px;
     font-family:        sans-serif;
     font-size:          12px;
-    font-weight:        normal;
+    font-weight:        lighter;
     z-index:            90000;
     transition:         background-color 0.25s ease-in-out;
     -moz-transition:    background-color 0.25s ease-in-out;
