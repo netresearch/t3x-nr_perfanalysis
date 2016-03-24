@@ -83,7 +83,7 @@ class HtmlRenderer
     position:           fixed;
     right:              0;
     bottom:             0;
-    background-color:   rgba(0,0,0,0.5);
+    background-color:   rgba(0,0,0,0.3);
     color:              #FFFFFF;
     border-top:         1px solid rgba(240,240,240,0.4);
     border-left:        1px solid rgba(240,240,240,0.4);
