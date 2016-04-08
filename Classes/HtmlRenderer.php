@@ -73,7 +73,7 @@ class HtmlRenderer
         foreach ($counts as $group => $number) {
             $htmlstr[] = $group
                 . ': ' . $counts[$group]
-                . '⨯, ' . $times[$group] . 's';
+                . 'x, ' . $times[$group] . 's';
         }
 
         $str = implode(', ', $htmlstr);
@@ -102,7 +102,7 @@ class HtmlRenderer
   }
 </style>
 <div id="perfanalysis" onclick="document.getElementById('perfanalysis').remove();"><span id="perfanalysisbrowser"></span>
- $str
+ $str &nbsp; <a href="#" onclick="document.location.reload();">RELOAD</a>
 </div>
 <script type="text/javascript">
 if (typeof performance != "undefined") {
