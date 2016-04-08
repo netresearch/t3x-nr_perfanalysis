@@ -100,9 +100,20 @@ class HtmlRenderer
   #perfanalysis:hover {
     background-color:   rgba(0,0,0,0.8);
   }
+
+  #perfanalysis a {
+    padding:            3px 5px 3px 5px;
+    border:             1px solid #39c;
+    z-index:            90001;
+  }
+
+  #perfanalysis a:hover {
+    color:              #FFFFFF;
+    border-color:       #FFFFFF;
+  }
 </style>
 <div id="perfanalysis" onclick="document.getElementById('perfanalysis').remove();"><span id="perfanalysisbrowser"></span>
- $str &nbsp; <a href="#" onclick="document.location.reload();">RELOAD</a>
+ $str &nbsp;<a href="#" onclick="document.location.reload();">RELOAD</a>
 </div>
 <script type="text/javascript">
 if (typeof performance != "undefined") {
