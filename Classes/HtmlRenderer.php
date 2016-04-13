@@ -87,7 +87,7 @@ class HtmlRenderer
     color:              #FFFFFF;
     border-top:         1px solid rgba(240,240,240,0.4);
     border-left:        1px solid rgba(240,240,240,0.4);
-    padding:            1px 8px 1px 8px;
+    padding:            5px 8px 5px 8px;
     font-family:        sans-serif;
     font-size:          12px;
     font-weight:        lighter;
@@ -102,7 +102,7 @@ class HtmlRenderer
   }
 
   #perfanalysis a {
-    padding:            3px 5px 3px 5px;
+    padding:            6px 12px 6px 12px;
     border:             1px solid #39c;
     z-index:            90001;
   }
@@ -110,6 +110,8 @@ class HtmlRenderer
   #perfanalysis a:hover {
     color:              #FFFFFF;
     border-color:       #FFFFFF;
+    background-color:   rgba(0,0,0,1.0);
+
   }
 </style>
 <div id="perfanalysis" onclick="document.getElementById('perfanalysis').remove();"><span id="perfanalysisbrowser"></span>
