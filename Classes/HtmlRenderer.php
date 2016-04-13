@@ -115,7 +115,7 @@ class HtmlRenderer
   }
 </style>
 <div id="perfanalysis" onclick="document.getElementById('perfanalysis').remove();"><span id="perfanalysisbrowser"></span>
- $str &nbsp;<a href="#" onclick="document.location.reload();">RELOAD</a>
+ $str &nbsp;<a href="#" onclick="document.location.reload(true);">RELOAD</a>
 </div>
 <script type="text/javascript">
 if (typeof performance != "undefined") {
