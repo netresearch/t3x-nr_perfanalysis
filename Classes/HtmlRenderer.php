@@ -87,14 +87,11 @@ class HtmlRenderer
     color:              #FFFFFF;
     border-top:         1px solid rgba(240,240,240,0.4);
     border-left:        1px solid rgba(240,240,240,0.4);
-    padding:            5px 8px 5px 8px;
+    padding:            4px 8px 4px 8px;
     font-family:        sans-serif;
-    font-size:          12px;
+    font-size:          14px;
     font-weight:        lighter;
     z-index:            90000;
-    transition:         background-color 0.25s ease-in-out;
-    -moz-transition:    background-color 0.25s ease-in-out;
-    -webkit-transition: background-color 0.25s ease-in-out;
   }
 
   #perfanalysis:hover {
@@ -102,8 +99,9 @@ class HtmlRenderer
   }
 
   #perfanalysis a {
-    padding:            6px 12px 6px 12px;
-    border:             1px solid #39c;
+    margin:             0 0 0 10px;
+    padding:            5px 12px 5px 12px;
+    border:             1px solid #40A0D0;
     z-index:            90001;
   }
 
@@ -115,7 +113,7 @@ class HtmlRenderer
   }
 </style>
 <div id="perfanalysis" onclick="document.getElementById('perfanalysis').remove();"><span id="perfanalysisbrowser"></span>
- $str &nbsp;<a href="#" onclick="document.location.reload(true);">RELOAD</a>
+ $str <a href="" onclick="document.location.reload(true);">RELOAD</a>
 </div>
 <script type="text/javascript">
 if (typeof performance != "undefined") {
