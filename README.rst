@@ -22,6 +22,12 @@ shown whenever a TYPO3 page is generated.
 
 Clicking on the bar hides it.
 
+The reload button will do a "document.location.reload(true)" which will 
+override the browser cache.
+
+Hovering over the button shows the current document.location (helpful on 
+devices that don't display a URL bar).
+
 
 Default performance indicators
 ==============================
