@@ -83,7 +83,7 @@ class HtmlRenderer
     position:           fixed;
     right:              0;
     bottom:             0;
-    background-color:   rgba(0,0,0,0.3);
+    background-color:   rgba(0,0,0,0.25);
     color:              #FFFFFF;
     border-top:         1px solid rgba(240,240,240,0.4);
     border-left:        1px solid rgba(240,240,240,0.4);
@@ -91,6 +91,7 @@ class HtmlRenderer
     font-family:        sans-serif;
     font-size:          14px;
     font-weight:        lighter;
+    text-align:         right;
     z-index:            90000;
   }
 
@@ -112,8 +113,8 @@ class HtmlRenderer
 
   }
 </style>
-<div id="perfanalysis" onclick="document.getElementById('perfanalysis').remove();"><span id="perfanalysisbrowser"></span>
- $str <a href="" onclick="document.location.reload(true);">RELOAD</a>
+<div id="perfanalysis" onclick="document.getElementById('perfanalysis').remove();">
+<span id="perfanalysisurl"></span><span id="perfanalysisbrowser"></span> $str <a href="" onmouseover="document.getElementById('perfanalysisurl').innerHTML = document.location + '<br>';" onclick="document.location.reload(true);">RELOAD</a>
 </div>
 <script type="text/javascript">
 if (typeof performance != "undefined") {
