@@ -92,6 +92,7 @@ class HtmlRenderer
     font-size:          14px;
     font-weight:        lighter;
     text-align:         right;
+    word-break:         break-all;
     z-index:            90000;
   }
 
