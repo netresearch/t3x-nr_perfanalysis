@@ -28,6 +28,16 @@ override the browser cache.
 Hovering over the button shows the current document.location (helpful on 
 devices that don't display a URL bar).
 
+=================
+Cookie Protection
+=================
+it is possible to enable the analysis but displaying the result in the frontend
+only if you have a specific cookie set.
+
+In the extenion manager you can enable the option ``Require cookie for displaying result in frontend (Cookie nr_perfanalysis=1 needs to be set)``
+If this option is active the result will only be displayed if the current request
+has the cookie ``nr_perfanalysis=1`` set.
+
 
 Default performance indicators
 ==============================

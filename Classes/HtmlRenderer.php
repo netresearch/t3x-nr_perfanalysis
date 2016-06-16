@@ -25,6 +25,27 @@ namespace Netresearch\NrPerfanalysis;
 class HtmlRenderer
 {
     /**
+     * Key for the value for cookie protection
+     *
+     * @var string
+     */
+    const KEY_COOKIEPROTECTION = 'cookieprotection';
+
+    /**
+     * Key for the value for cookie protection
+     *
+     * @var string
+     */
+    const KEY_PROTECTIONCOOKIE_NAME = 'nr_perfanalysis';
+
+    /**
+     * the extension configuration array
+     *
+     * @var array
+     */
+    protected $arExtConf = null;
+
+    /**
      * Render statistics into HTML after everything is finished
      *
      * @param array  $arParams Parameter from render function
@@ -37,6 +58,11 @@ class HtmlRenderer
         $arParams,
         \TYPO3\CMS\Frontend\Controller\TypoScriptFrontendController $tsfe
     ) {
+
+        if (!$this->shouldResultBeDisplayed()) {
+            return $tsfe->content;
+        }
+
         $tsfe->content = str_replace(
             '</body>',
             $this->genHtml() . '</body>',
@@ -136,6 +162,75 @@ if (typeof performance != "undefined") {
 </script>
 HTM;
         return $html;
+    }
+
+
+    /**
+     * Returns true if the result of the performance analysing should be
+     * displayed.
+     *
+     * @return bool
+     */
+    protected function shouldResultBeDisplayed()
+    {
+        // always display if no protection is enabled
+        if (false === $this->hasCookieProtectionEnabled()) {
+            return true;
+        }
+
+        return $this->hasRequiredProtectionCookieSet();
+    }
+
+    /**
+     * Returns true if the protection cookie is set for the current request.
+     *
+     * @return bool
+     */
+    protected function hasRequiredProtectionCookieSet()
+    {
+        if (empty($_COOKIE[self::KEY_PROTECTIONCOOKIE_NAME])) {
+            return false;
+        }
+
+        return (bool) $_COOKIE[self::KEY_PROTECTIONCOOKIE_NAME];
+    }
+
+    /**
+     * Returns true if cookie protection is enabled in the extension
+     * configuration.
+     *
+     * @return bool
+     */
+    protected function hasCookieProtectionEnabled()
+    {
+        $this->loadExtensionConfiguration();
+
+        if (empty($this->arExtConf[self::KEY_COOKIEPROTECTION])) {
+            return false;
+        }
+
+        return (bool) $this->arExtConf[self::KEY_COOKIEPROTECTION];
+    }
+
+    /**
+     * Returns the extension configuration array.
+     *
+     * @return array
+     */
+    protected function loadExtensionConfiguration()
+    {
+        if (null != $this->arExtConf) {
+            return $this->arExtConf;
+        }
+
+        if (empty($GLOBALS['TYPO3_CONF_VARS']['EXT']['extConf']['nr_perfanalysis'])) {
+            $this->arExtConf = array();
+        }
+        $this->arExtConf = unserialize(
+            $GLOBALS['TYPO3_CONF_VARS']['EXT']['extConf']['nr_perfanalysis']
+        );
+
+        return $this->arExtConf;
     }
 }
 ?>

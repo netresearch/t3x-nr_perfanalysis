@@ -1,3 +1,7 @@
+2016-06-16  Tobias.Hein  <tobias.hein@netresearch.de>
+
+	* WSD-575: add posibility to display results of nr_perfanalysis only if a special cookie nr_perfanalysis is set to the current request
+
 2015-10-15  André Lademann  <andre.lademann@netresearch.de>
 
 	* AGP-2563: Add performance analyses key values for browser

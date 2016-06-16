@@ -1,2 +1,4 @@
 # cat=basic/enable; type=boolean; label=Enable statistics collection
 enable=1
+# cat=basic/cookieprotection; type=boolean; label=Require cookie for displaying result in frontend (Cookie nr_perfanalysis=1 needs to be set)
+cookieprotection=0
