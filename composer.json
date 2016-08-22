@@ -1,0 +1,21 @@
+{
+	"name": "netresearch/nr-perfanalysis",
+	"description": "TYPO3 extension that collects and displays frontend rendering timing and quantity information.",
+	"license": "MIT",
+	"homepage": "http://www.netresearch.de/",
+	"support": {
+		"issues": "https://github.com/netresearch/t3x-nr_perfanalysis/issues"
+	},
+	"keywords": [
+		"TYPO3",
+		"extension"
+	],
+	"require": {
+		"typo3/cms-core": ">=6.2.0,<7.99.99"
+	},
+	"autoload": {
+		"psr-4": {
+			"Netresearch\\NrPerfanalysis\\": "src/"
+		}
+	}
+}
