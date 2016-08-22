@@ -15,7 +15,7 @@
 	},
 	"autoload": {
 		"psr-4": {
-			"Netresearch\\NrPerfanalysis\\": "src/"
+			"Netresearch\\NrPerfanalysis\\": "Classes/"
 		}
 	}
 }
