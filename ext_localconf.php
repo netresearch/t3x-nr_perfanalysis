@@ -22,6 +22,10 @@ if ($extConf['enable']) {
         ['queryProcessors'][]
         = 'Netresearch\NrPerfanalysis\QueryHooker';
     if (TYPO3_MODE == 'FE') {
+        // start Xhprof
+        $GLOBALS['TYPO3_CONF_VARS']['SC_OPTIONS']['tslib/index_ts.php']['preprocessRequest'][]
+            = \Netresearch\NrPerfanalysis\XhprofHooker::class . '->profilingInit';
+
         $GLOBALS['TYPO3_CONF_VARS']['SC_OPTIONS']['tslib/class.tslib_fe.php']
             ['contentPostProc-output'][]
             = 'Netresearch\NrPerfanalysis\HtmlRenderer->contentPostProcOutput';

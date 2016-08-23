@@ -101,6 +101,9 @@ class HtmlRenderer
                 . 'x, ' . $times[$group] . 's';
         }
 
+        $profiler = new XhprofHooker();
+        $profilerHtml = $profiler->genHtml();
+        
         $str = implode(', ', $htmlstr);
         $html = <<<HTM
 <style>
@@ -140,7 +143,7 @@ class HtmlRenderer
   }
 </style>
 <div id="perfanalysis" onclick="document.getElementById('perfanalysis').remove();">
-<span id="perfanalysisurl"></span><span id="perfanalysisbrowser"></span> $str <a href="" onmouseover="document.getElementById('perfanalysisurl').innerHTML = document.location + '<br>';" onclick="document.location.reload(true);">RELOAD</a>
+<span id="perfanalysisurl"></span><span id="perfanalysisbrowser"></span> $str <a href="" onmouseover="document.getElementById('perfanalysisurl').innerHTML = document.location + '<br>';" onclick="document.location.reload(true);">RELOAD</a>$profilerHtml
 </div>
 <script type="text/javascript">
 if (typeof performance != "undefined") {
