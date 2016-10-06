@@ -28,13 +28,6 @@ class HtmlRenderer
      *
      * @var string
      */
-    const KEY_COOKIEPROTECTION = 'cookieprotection';
-
-    /**
-     * Key for the value for cookie protection
-     *
-     * @var string
-     */
     const KEY_PROTECTIONCOOKIE_NAME = 'nr_perfanalysis';
 
     /**
@@ -176,7 +169,7 @@ HTM;
     protected function shouldResultBeDisplayed()
     {
         // always display if no protection is enabled
-        if (false === $this->hasCookieProtectionEnabled()) {
+        if (false === Config::isCookieProtectionEnabled()) {
             return true;
         }
 
@@ -195,44 +188,6 @@ HTM;
         }
 
         return (bool) $_COOKIE[self::KEY_PROTECTIONCOOKIE_NAME];
-    }
-
-    /**
-     * Returns true if cookie protection is enabled in the extension
-     * configuration.
-     *
-     * @return bool
-     */
-    protected function hasCookieProtectionEnabled()
-    {
-        $this->loadExtensionConfiguration();
-
-        if (empty($this->arExtConf[self::KEY_COOKIEPROTECTION])) {
-            return false;
-        }
-
-        return (bool) $this->arExtConf[self::KEY_COOKIEPROTECTION];
-    }
-
-    /**
-     * Returns the extension configuration array.
-     *
-     * @return array
-     */
-    protected function loadExtensionConfiguration()
-    {
-        if (null != $this->arExtConf) {
-            return $this->arExtConf;
-        }
-
-        if (empty($GLOBALS['TYPO3_CONF_VARS']['EXT']['extConf']['nr_perfanalysis'])) {
-            $this->arExtConf = array();
-        }
-        $this->arExtConf = unserialize(
-            $GLOBALS['TYPO3_CONF_VARS']['EXT']['extConf']['nr_perfanalysis']
-        );
-
-        return $this->arExtConf;
     }
 }
 ?>

@@ -2,3 +2,7 @@
 enable=1
 # cat=basic/cookieprotection; type=boolean; label=Require cookie for displaying result in frontend (Cookie nr_perfanalysis=1 needs to be set)
 cookieprotection=0
+# cat=basic/xhprofInstallDir; type=string; label=Configure the path to the xhprof installation directory. Always add a directory separator at the end!
+xhprofDir=/usr/local/lib/xhprof/
+# cat=basic/xhprofFrontendUrl; type=string; label=Configure the frontend url which enables you to show the profiling results. Always add a slash (/) at the end!
+xhprofUrl=http://www.domain.com/xhprof/
