@@ -125,6 +125,7 @@ class HtmlRenderer
     margin:             0 0 0 10px;
     padding:            5px 12px 5px 12px;
     border:             1px solid #40A0D0;
+    color:              #40A0D0;
     z-index:            90001;
   }
 
@@ -136,7 +137,9 @@ class HtmlRenderer
   }
 </style>
 <div id="perfanalysis" onclick="document.getElementById('perfanalysis').remove();">
-<span id="perfanalysisurl"></span><span id="perfanalysisbrowser"></span> $str <a href="" onmouseover="document.getElementById('perfanalysisurl').innerHTML = document.location + '<br>';" onclick="document.location.reload(true);">RELOAD</a>$profilerHtml
+<span id="perfanalysisurl"></span><span id="perfanalysisbrowser"></span> $str 
+<a href="" onmouseover="document.getElementById('perfanalysisurl').innerHTML = document.location + '<br><br>';" 
+onclick="document.location.reload(true);">RELOAD</a>$profilerHtml
 </div>
 <script type="text/javascript">
 if (typeof performance != "undefined") {
