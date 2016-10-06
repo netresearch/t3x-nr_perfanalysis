@@ -25,10 +25,18 @@ class Config
 {
     /**
      * Key for the value for cookie protection
-     *
-     * @var string
      */
     const KEY_COOKIEPROTECTION = 'cookieprotection';
+
+    /**
+     * Key for xhprof directory
+     */
+    const KEY_XHPROF_DIR = 'xhprofDir';
+
+    /**
+     * Key for xhprof url
+     */
+    const KEY_XHPROF_URL = 'xhprofUrl';
 
     /**
      * the extension configuration array
@@ -90,16 +98,40 @@ class Config
         return (bool) self::$arExtConf[self::KEY_COOKIEPROTECTION];
     }
 
+
+
+    /**
+     * Returns the configured xhprof directory
+     *
+     * @return string
+     */
     public static function getXhprofDir ()
     {
         self::loadExtensionConfiguration();
 
+        if (empty(self::$arExtConf[self::KEY_XHPROF_DIR])) {
+            return '';
+        }
+
+        return self::$arExtConf[self::KEY_XHPROF_DIR];
     }
 
+
+
+    /**
+     * Returns the configured xhprof url
+     * 
+     * @return string
+     */
     public static function getXhprofUrl ()
     {
         self::loadExtensionConfiguration();
 
+        if (empty(self::$arExtConf[self::KEY_XHPROF_URL])) {
+            return '';
+        }
+
+        return self::$arExtConf[self::KEY_XHPROF_URL];
     }
 
 
