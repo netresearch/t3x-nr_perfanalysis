@@ -28,6 +28,9 @@ override the browser cache.
 Hovering over the button shows the current document.location (helpful on 
 devices that don't display a URL bar).
 
+The start profiling button will reload the page and start a xhprof profiling. After
+the reload you will get a link to see the results.
+
 =================
 Cookie Protection
 =================
@@ -41,12 +44,13 @@ has the cookie ``nr_perfanalysis=1`` set.
 
 Default performance indicators
 ==============================
-``page``
+``Browser``
+  Browser `rendering time`__
+``Page``
   Server-side page rendering time
 ``sql``
   SQL query count and time
-``browser``
-  Browser `rendering time`__
+
 
 __ http://www.w3.org/TR/2012/REC-navigation-timing-20121217/#sec-window.performance-attribute
 
@@ -69,6 +73,13 @@ Finish it off::
 Now you logged a "PUT" event in the "REST" group, and the REST group
 will show up in the statistics on the bottom right.
 
+======
+Xhprof
+======
+To be able to use Xhprof it is necessary to have Xhprof installed.
+In the extension manager you have to set the path to your Xhprof installation,
+e.g. /srv/www/xhprof/ and the base-url under which you can see the profiler output,
+e.g. www.yourserver.de/xhprof/.
 
 ============
 Dependencies

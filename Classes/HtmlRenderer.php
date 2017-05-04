@@ -1,5 +1,4 @@
 <?php
-declare(encoding = 'UTF-8');
 /**
  * Part of nr_perfanalysis
  *
@@ -24,13 +23,6 @@ namespace Netresearch\NrPerfanalysis;
  */
 class HtmlRenderer
 {
-    /**
-     * Key for the value for cookie protection
-     *
-     * @var string
-     */
-    const KEY_COOKIEPROTECTION = 'cookieprotection';
-
     /**
      * Key for the value for cookie protection
      *
@@ -102,6 +94,9 @@ class HtmlRenderer
                 . 'x, ' . $times[$group] . 's';
         }
 
+        $profiler = new XhprofHooker();
+        $profilerHtml = $profiler->genHtml();
+        
         $str = implode(', ', $htmlstr);
         $html = <<<HTM
 <style>
@@ -130,6 +125,7 @@ class HtmlRenderer
     margin:             0 0 0 10px;
     padding:            5px 12px 5px 12px;
     border:             1px solid #40A0D0;
+    color:              #40A0D0;
     z-index:            90001;
   }
 
@@ -141,7 +137,9 @@ class HtmlRenderer
   }
 </style>
 <div id="perfanalysis" onclick="document.getElementById('perfanalysis').remove();">
-<span id="perfanalysisurl"></span><span id="perfanalysisbrowser"></span> $str <a href="" onmouseover="document.getElementById('perfanalysisurl').innerHTML = document.location + '<br>';" onclick="document.location.reload(true);">RELOAD</a>
+<span id="perfanalysisurl"></span><span id="perfanalysisbrowser"></span> $str 
+<a href="" onmouseover="document.getElementById('perfanalysisurl').innerHTML = document.location + '<br><br>';" 
+onclick="document.location.reload(true);">RELOAD</a>$profilerHtml
 </div>
 <script type="text/javascript">
 if (typeof performance != "undefined") {
@@ -174,7 +172,7 @@ HTM;
     protected function shouldResultBeDisplayed()
     {
         // always display if no protection is enabled
-        if (false === $this->hasCookieProtectionEnabled()) {
+        if (false === Config::isCookieProtectionEnabled()) {
             return true;
         }
 
@@ -193,44 +191,6 @@ HTM;
         }
 
         return (bool) $_COOKIE[self::KEY_PROTECTIONCOOKIE_NAME];
-    }
-
-    /**
-     * Returns true if cookie protection is enabled in the extension
-     * configuration.
-     *
-     * @return bool
-     */
-    protected function hasCookieProtectionEnabled()
-    {
-        $this->loadExtensionConfiguration();
-
-        if (empty($this->arExtConf[self::KEY_COOKIEPROTECTION])) {
-            return false;
-        }
-
-        return (bool) $this->arExtConf[self::KEY_COOKIEPROTECTION];
-    }
-
-    /**
-     * Returns the extension configuration array.
-     *
-     * @return array
-     */
-    protected function loadExtensionConfiguration()
-    {
-        if (null != $this->arExtConf) {
-            return $this->arExtConf;
-        }
-
-        if (empty($GLOBALS['TYPO3_CONF_VARS']['EXT']['extConf']['nr_perfanalysis'])) {
-            $this->arExtConf = array();
-        }
-        $this->arExtConf = unserialize(
-            $GLOBALS['TYPO3_CONF_VARS']['EXT']['extConf']['nr_perfanalysis']
-        );
-
-        return $this->arExtConf;
     }
 }
 ?>

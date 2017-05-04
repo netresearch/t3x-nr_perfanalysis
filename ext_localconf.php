@@ -20,17 +20,22 @@ if ($extConf['enable']) {
     //do nothing
     $GLOBALS['TYPO3_CONF_VARS']['SC_OPTIONS']['t3lib/class.t3lib_db.php']
         ['queryProcessors'][]
-        = 'Netresearch\NrPerfanalysis\QueryHooker';
+            = 'Netresearch\NrPerfanalysis\QueryHooker';
+
     if (TYPO3_MODE == 'FE') {
+        // initialize Xhprof
+        $GLOBALS['TYPO3_CONF_VARS']['SC_OPTIONS']['tslib/index_ts.php']['preprocessRequest'][]
+            = \Netresearch\NrPerfanalysis\XhprofHooker::class . '->profilingInit';
+
         $GLOBALS['TYPO3_CONF_VARS']['SC_OPTIONS']['tslib/class.tslib_fe.php']
             ['contentPostProc-output'][]
-            = 'Netresearch\NrPerfanalysis\HtmlRenderer->contentPostProcOutput';
+                = 'Netresearch\NrPerfanalysis\HtmlRenderer->contentPostProcOutput';
     } else if (TYPO3_MODE == 'BE') {
         $GLOBALS['TYPO3_CONF_VARS']['SYS']['Objects']
             ['TYPO3\\CMS\\Filelist\\Controller\\FileListController']
-            = array(
-                'className' => 'Netresearch\\NrPerfanalysis\\Xclass\\FileListController'
-            );
+                = array(
+                    'className' => 'Netresearch\\NrPerfanalysis\\Xclass\\FileListController'
+                );
     }
 }
 ?>
