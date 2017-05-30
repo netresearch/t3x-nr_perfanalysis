@@ -102,7 +102,12 @@ class HtmlRenderer
                 . 'x, ' . $times[$group] . 's';
         }
 
+        if (TrafficCounter::get()->counts) {
+            $htmlstr[] = TrafficCounter::get()->getHtml();
+        }
+
         $str = implode(', ', $htmlstr);
+
         $html = <<<HTM
 <style>
   #perfanalysis {
