@@ -36,6 +36,6 @@ class FileListController
 
         $hr = new HtmlRenderer();
         echo $hr->genHtml();
-    }    
+    }
 }
 ?>

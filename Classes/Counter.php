@@ -50,7 +50,7 @@ class Counter
 
     /**
      * Singleton instance
-     * 
+     *
      * @var self
      */
     protected static $instance;
@@ -103,7 +103,7 @@ class Counter
      */
     public function finish($group, $event)
     {
-        $this->timesums[$group][$event] += 
+        $this->timesums[$group][$event] +=
             microtime(true) - $this->timers[$group][$event];
     }
 }
