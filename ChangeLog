@@ -1,3 +1,7 @@
+2017-10-12  Axel Kummer  <axel.kummer@netresearch.de>
+
+	* Version: 1.1.0
+
 2016-06-16  Tobias.Hein  <tobias.hein@netresearch.de>
 
 	* WSD-575: add posibility to display results of nr_perfanalysis only if a special cookie nr_perfanalysis is set to the current request
