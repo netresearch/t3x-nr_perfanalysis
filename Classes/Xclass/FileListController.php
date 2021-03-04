@@ -1,5 +1,4 @@
 <?php
-declare(encoding = 'UTF-8');
 /**
  * Part of nr_perfanalysis
  *
@@ -37,6 +36,6 @@ class FileListController
 
         $hr = new HtmlRenderer();
         echo $hr->genHtml();
-    }    
+    }
 }
 ?>

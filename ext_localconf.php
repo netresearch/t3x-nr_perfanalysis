@@ -21,6 +21,17 @@ if ($extConf['enable']) {
     $GLOBALS['TYPO3_CONF_VARS']['SC_OPTIONS']['t3lib/class.t3lib_db.php']
         ['queryProcessors'][]
         = 'Netresearch\NrPerfanalysis\QueryHooker';
+    if (class_exists('\\TYPO3\\CMS\\Core\\Database\\ConnectionPool')) {
+        //TYPO3 v8
+        $dbcon = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance(
+            \TYPO3\CMS\Core\Database\ConnectionPool::class
+        )->getConnectionByName(
+            \TYPO3\CMS\Core\Database\ConnectionPool::DEFAULT_CONNECTION_NAME
+        );
+        $dbcon->getConfiguration()->setSQLLogger(
+            new \Netresearch\NrPerfanalysis\DoctrineQueryHooker()
+        );
+    }
     if (TYPO3_MODE == 'FE') {
         $GLOBALS['TYPO3_CONF_VARS']['SC_OPTIONS']['tslib/class.tslib_fe.php']
             ['contentPostProc-output'][]
