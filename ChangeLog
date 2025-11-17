@@ -1,6 +1,6 @@
-2025-11-15  Sebastian Altenburg  <sebastian.altenburg@netresearch.de>
+2025-11-17  Sebastian Altenburg  <sebastian.altenburg@netresearch.de>
 
-	* Version: 1.2.1
+	* Version: 1.2.2
     + NEXT-98: Add extension icon and github action for publishing to TER
 
 2017-10-12  Axel Kummer  <axel.kummer@netresearch.de>
